@@ -1,0 +1,12 @@
+{
+  "selector": "source.clojure",
+  "path": "$HOME/bin:$PATH",
+  "working_dir": "${file_path}",
+  "file_regex": ".+\\(([^:]*):([0-9]*):?([0-9]*)\\)$",
+  "shell": true,
+  // following commands settings are generated with parsing `inlein --help` output.
+  "cmd": "inlein --run $file",
+  "variants": [
+    {"cmd": "inlein --shutdown-daemon", "name": "--shutdown-daemon"},
+  ]
+}

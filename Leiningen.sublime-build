@@ -1,0 +1,19 @@
+{
+  "selector": "source.clojure",
+  "path": "$HOME/bin:$PATH",
+  "working_dir": "${file/^(.+\\/src)\\/(.+).clj$/$1/}",
+  "file_regex": ".+\\(([^:]*):([0-9]*):?([0-9]*)\\)$",
+  "shell": true,
+  // following commands settings are generated with parsing `lein help` output.
+  "cmd": "lein run",
+  "variants": [
+    {"cmd": "lein compile :all",  "name": "lein compile             Compile Clojure source into .class files."},
+    {"cmd": "lein check",         "name": "lein check               Check syntax and warn on reflection."},
+    {"cmd": "lein test",          "name": "lein test                Run the project's tests."},
+    {"cmd": "lein retest",        "name": "lein retest              Run only the test namespaces which failed last time around."},
+    {"cmd": "lein clean",         "name": "lein clean               Remove all files from project's target-path."},
+    {"cmd": "lein jar",           "name": "lein jar                 Package up all the project's files into a jar file."},
+    {"cmd": "lein uberjar",       "name": "lein uberjar             Package up the project files and dependencies into a jar file."},
+    {"cmd": "lein install",       "name": "lein install             Install the current project to the local repository."},
+  ]
+}

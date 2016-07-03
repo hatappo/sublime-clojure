@@ -1,0 +1,5 @@
+{
+  "selector": "source.clojurescript",
+  "file_regex": "^.* \\(([^:]*):([0-9]*):([0-9]*)\\)$",
+  "cmd": ["planck", "$file"],
+}
