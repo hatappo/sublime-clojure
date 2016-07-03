@@ -1,0 +1,38 @@
+{
+  "scope": "source.clojurescript",
+  "completions": [
+    // Namaspaces
+    "planck.core","planck.io","planck.shell","planck.http",
+    // Vars in planck.core
+    {"trigger": "planck *command-line-args*", "contents": "*command-line-args*"},
+    {"trigger": "planck *in*",                "contents": "*in*"},
+    {"trigger": "planck *out*",               "contents": "*out*"},
+    {"trigger": "planck *err*",               "contents": "*err*"},
+    {"trigger": "planck exit",                "contents": "(exit ${1:exit-value})"},
+    {"trigger": "planck eval",                "contents": "(eval ${1:form})"},
+    {"trigger": "planck resolve",             "contents": "(resolve ${1:sym})"},
+    {"trigger": "planck ns-resolve",          "contents": "(ns-resolve ${1:ns}) ${2:sym}"},
+    {"trigger": "planck init-empty-state",    "contents": "(init-empty-state ${1:state})"},
+    {"trigger": "planck intern",              "contents": "(intern ${1:ns} ${2:name})"},
+    {"trigger": "planck slurp",               "contents": "(slurp ${1:f})"},
+    {"trigger": "planck spit",                "contents": "(spit ${1:f} ${2:content})"},
+    {"trigger": "planck read-line",           "contents": "(read-line)"},
+    {"trigger": "planck read-password",       "contents": "(read-password${1: prompt})"},
+    {"trigger": "planck line-seq",            "contents": "(line-seq ${1:rdr})"},
+    {"trigger": "planck file-seq",            "contents": "(file-seq ${1:dir})"},
+    // Vars in planck.io
+    {"trigger": "planck file",                "contents": "(file ${1:path})"},
+    {"trigger": "planck delete-file",         "contents": "(delete-file ${1:f})"},
+    {"trigger": "planck file-attributes",     "contents": "(file-attributes ${1:path})"},
+    {"trigger": "planck directory?",          "contents": "(directory? ${1:dir})"},
+    {"trigger": "planck path-separator",      "contents": "path-separator"},
+    // Vars in planck.shell
+    {"trigger": "planck with-sh-dir",         "contents": "(with-sh-dir ${1:dir} ${2:forms})"},
+    {"trigger": "planck with-sh-env",         "contents": "(with-sh-env ${1:env} ${2:forms})"},
+    // Vars in planck.http
+    {"trigger": "planck get",                 "contents": "(get ${1:url})"},
+    {"trigger": "planck post",                "contents": "(post ${1:url})"},
+    // Snippets
+    {"trigger": "planck shebang",             "contents": "#!/usr/bin/env planck"},
+ ]
+}

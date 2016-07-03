@@ -1,0 +1,22 @@
+{
+  "scope": "source.clojure,source.clojurescript",
+  "completions": [
+    "nil","true","false",
+    // Snippets which are common in Clojure & ClojureScript.
+    {"trigger": "ns",             "contents": "(ns ${TM_FILEPATH/^(.+\\/src\\/)|(_)|(\\/)|(\\.clj)$/(?1)(?2-)(?3.)(?4)/g}\n  $0)"},
+    {"trigger": ":require",       "contents": "(:require [${1:namespace}${2: :as [${1/.+\\.//}]}$3]$4)"},
+    {"trigger": ":import",        "contents": "(:import (${1:package} ${2:classes})$3)"},
+    {"trigger": ":use",           "contents": "(:use [${1:namespace}${2: :only [${3:vars}]}]$4)"},
+    {"trigger": ":refer-clojure", "contents": "(:refer-clojure :exclude [${1:vars}])"},
+    {"trigger": ":keys",          "contents": "{:keys [${1:symbols}]${2: :or {${1/( +)|($)/(?1 nil )(?2 nil)/g}${3}\\}}${4: :as ${5:all}}} ${6:{\\}}"},
+    {"trigger": ":strs",          "contents": "{:strs [${1:symbols}]${2: :or {${1/( +)|($)/(?1 nil )(?2 nil)/g}${3}\\}}${4: :as ${5:all}}} ${6:{\\}}"},
+    {"trigger": ":syms",          "contents": "{:syms [${1:symbols}]${2: :or {${1/( +)|($)/(?1 nil )(?2 nil)/g}${3}\\}}${4: :as ${5:all}}} ${6:{\\}}"},
+    {"trigger": "defmulti",       "contents": "(defmulti ${1:name} ${0:dispatch-fn})"},
+    {"trigger": "defmethod",      "contents": "(defmethod ${1:multifn} ${2:dispatch-val} [${3:fn-args}] ${0:body})"},
+    {"trigger": "defprotocol",    "contents": "(defprotocol ${1:Name}\n  (${2:fn-name} [${3:args}])$4)"},
+    {"trigger": "defrecord",      "contents": "(defrecord ${1:Name} [${2:fields}]${3:\n  ${4:ProtocolOrInterfaceOrObject}\n  (${5:method} [${6:this}] ${0:body})})"},
+    {"trigger": "deftype",        "contents": "(deftype ${1:Name} [${2:fields}]${3:\n  ${4:ProtocolOrInterfaceOrObject}\n  (${5:method} [${6:this}] ${0:body})})"},
+    {"trigger": "for",            "contents": "(for [${1:binding-form collection-expr}${2:\n      :let [${3:symbol} ${4:expr}]}${5:\n      :when ${6:conditional}}]\n  ${0:body})"},
+    {"trigger": "doseq",          "contents": "(doseq [${1:binding-form collection-expr}${2:\n      :let [${3:symbol} ${4:expr}]}${5:\n      :when ${6:conditional}}]\n  ${0:body})"},
+  ]
+}

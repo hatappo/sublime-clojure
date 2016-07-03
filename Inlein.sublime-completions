@@ -1,0 +1,10 @@
+{
+  "scope": "source.clojure",
+  "completions": [
+    // Snippets
+    {"trigger": "inlein $0",                  "contents": "(System/getProperty \"\\$0\")"},
+    {"trigger": "inlein project.clj clojure", "contents": "'{:dependencies [[org.clojure/clojure \"${1:x.y.z}\"]]${4:\n  :jvm-opts []}}"},
+    {"trigger": "inlein project.clj jaunt",   "contents": "'{:dependencies [[org.jaunt-lang/jaunt \"${1:x.y.z}\"]]${4:\n  :jvm-opts []}}"},
+    {"trigger": "inlein shebang",             "contents": "#!/usr/bin/env inlein"},
+ ]
+}
