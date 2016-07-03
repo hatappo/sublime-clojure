@@ -4,7 +4,7 @@
     "nil","true","false",
     // Snippets which are common in Clojure & ClojureScript.
     {"trigger": "ns",             "contents": "(ns ${TM_FILEPATH/^(.+\\/src\\/)|(_)|(\\/)|(\\.clj)$/(?1)(?2-)(?3.)(?4)/g}\n  $0)"},
-    {"trigger": ":require",       "contents": "(:require [${1:namespace}${2: :as [${1/.+\\.//}]}$3]$4)"},
+    {"trigger": ":require",       "contents": "(:require [${1:namespace}${2: :as ${3:${1/.+\\.//}}}]$4)"},
     {"trigger": ":import",        "contents": "(:import (${1:package} ${2:classes})$3)"},
     {"trigger": ":use",           "contents": "(:use [${1:namespace}${2: :only [${3:vars}]}]$4)"},
     {"trigger": ":refer-clojure", "contents": "(:refer-clojure :exclude [${1:vars}])"},
