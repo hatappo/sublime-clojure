@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Refactor inline namespace in clojure.",
+    "command": "clojure_inline_namespace_refactoring",
+  }
+]
