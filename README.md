@@ -53,11 +53,11 @@ Type `Ctrl + Command + Shift + n` with your cursol is on any position on `clojur
   (:require [clojure.string :as s]
             [clojure.java.io :as io]))
 
-(defn aaa [] (io/reader "http://.....")
+(defn aaa [] (io/reader "http://....."))
 
-(defn bbb [] (io/reader "http://.....")
+(defn bbb [] (io/reader "http://....."))
 
-(defn ccc [] (io/reader "http://.....")
+(defn ccc [] (io/reader "http://....."))
 ```
 
 And **all 4 `io` aliases are automatically selected**, so you can change your favorite alias name immediately if you don't like default alias name (`io` in this case).
