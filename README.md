@@ -62,7 +62,7 @@ Type `Ctrl + Command + Shift + n` with your cursol is on any position on `clojur
 
 And **all 4 `io` aliases are automatically selected**, so you can change your favorite alias name immediately if you don't like default alias name (`io` in this case).
 
-Of course, Any case is handled, for instance there are no `ns` declarations or no `:require` phrases.
+Of course, any case is handled well such as no `ns` form or no `require`/`import` phrase.
 
 ## Features
 
