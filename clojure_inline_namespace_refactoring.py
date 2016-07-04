@@ -47,7 +47,7 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 
 		# 2. insert "import" phrase in ns form
 		ns_and_the_1st_arg_region = v.find(r"\(ns[,\s]+[^,\s]+", 0)
-		import_region = v.find(r"\(ns[,\s](.|\n)+\(:import[\s,][^)]+?\)", 0)
+		import_region = v.find(r"\(ns[,\s](.|\n)+\(:import[\s,][^)]+?\)[\s,]*\)", 0)
 		print("import code region: " + str(import_region))
 		if ns_and_the_1st_arg_region.end() < 0:
 			# 2-1. There id no ns form
