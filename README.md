@@ -29,7 +29,21 @@ ln -s `pwd`/sublime-clojure $HOME/Library/Application\ Support/Sublime\ Text\ 3/
 
 ### Plugins
 
-#### Extract inline namespace phrase
+#### Send to REPL
+
+0. Send a symbol of the cursol with **`clojure.repl/doc`** to sublime-REPL.
+
+0. Send a symbol of the cursol with **`clojure.repl/source`** to sublime-REPL.
+
+0. Send a block of the cursol with **`clojure.core/macroexpand-1`** to sublime-REPL.
+
+0. Send a block of the cursol with **`clojure.core/macroexpand`** to sublime-REPL.
+
+The above commands are not registered in [keymap](Default (OSX).sublime-keymap).
+You may use on **[command palette](Default.sublime-commands) (`Command + Shift + P`)**.
+
+
+#### Extract inline namespace or package modification
 
 Consider a code like following.
 
@@ -148,6 +162,7 @@ Support [Planck](http://planck-repl.org/).
 ### Plugins
 
 * clojure_inline_namespace_refactoring.py
+* clojure_repl_sender.py
 
 ### Command Mappings
 

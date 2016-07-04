@@ -1,3 +1,7 @@
 [
   { "keys": ["ctrl+super+shift+n"], "command": "clojure_inline_namespace_refactoring" },
+  // { "keys": [""], "command": "clojure_repl_doc" },
+  // { "keys": [""], "command": "clojure_repl_source" },
+  // { "keys": [""], "command": "clojure_repl_macroexpand1" },
+  // { "keys": [""], "command": "clojure_repl_macroexpand" },
 ]

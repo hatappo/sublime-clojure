@@ -2,5 +2,21 @@
   {
     "caption": "Refactor inline namespace in clojure.",
     "command": "clojure_inline_namespace_refactoring",
-  }
+  },
+  {
+    "caption": "doc -> REPL.",
+    "command": "clojure_repl_doc",
+  },
+  {
+    "caption": "source  -> REPL.",
+    "command": "clojure_repl_source",
+  },
+  {
+    "caption": "macroexpand-1 -> REPL.",
+    "command": "clojure_repl_macroexpand1",
+  },
+  {
+    "caption": "macroexpand -> REPL.",
+    "command": "clojure_repl_macroexpand",
+  },
 ]
