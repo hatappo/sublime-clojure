@@ -27,6 +27,13 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 		r = v.expand_by_class(pos, self.__class__.__ns_class, " /({[")
 		return v.find(r"[-\w\d.]+[-\w\d]", r.begin())
 
+	def current_file_namespace(self):
+		f = self.view.file_name();
+		f = re.sub(r"^.+\/src\/(.+)\.clj\w?$", r"\1", f)
+		f = re.sub("_", "-", f)
+		f = re.sub("/", ".", f)
+		return f
+
 	def extract_inline_pkg_modification(self, edit, inline_region):
 		v = self.view
 
@@ -50,8 +57,9 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 				import_code = "\n(import '({0} {1}))".format(pkgname, classname)
 				import_code_insertion_pos = end_of_shebang_or_dependencies_regions[-1].end()
 			else:
-				# 2-1-2. There are not both shebang and dependencies
-				import_code = "(import '({0} {1}))\n".format(pkgname, classname)
+				# 2-1-2. There are not any shebang or dependencies or ns form.
+				current_ns = self.current_file_namespace()
+				import_code = "(ns {0}\n  (:import ({1} {2})))\n".format(current_ns, pkgname, classname)
 				import_code_insertion_pos = 0
 			v.insert(edit, import_code_insertion_pos, import_code)
 			added_import_alias_end_pos = import_code_insertion_pos + len(import_code) - 3
@@ -94,8 +102,9 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 				require_code = "\n(require '[{0} :as {1}])".format(ns, alias)
 				require_code_insertion_pos = end_of_shebang_or_dependencies_regions[-1].end()
 			else:
-				# 2-1-2. There are not both shebang and dependencies
-				require_code = "(require '[{0} :as {1}])\n".format(ns, alias)
+				# 2-1-2. There are not any shebang or dependencies or ns form.
+				current_ns = self.current_file_namespace()
+				require_code = "(ns {0}\n  (:require [{1} :as {2}]))\n".format(current_ns, ns, alias)
 				require_code_insertion_pos = 0
 			v.insert(edit, require_code_insertion_pos, require_code)
 			added_require_alias_end_pos = require_code_insertion_pos + len(require_code) - 3
