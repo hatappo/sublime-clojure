@@ -4,5 +4,8 @@
     "clj,cljs,cljx"
   ],
   "tab_size": 2,
-  "translate_tabs_to_spaces": true
+  "translate_tabs_to_spaces": true,
+  // To disable to insert automatically closing single quote(')
+  // Use this settings with "Paredit" plugin to enble to insert other ("([{)) closing elements.
+  "auto_match_enabled": false,
 }
