@@ -38,11 +38,11 @@ Consider a code like following.
   (:import java.util Date)
   (:require [clojure.string :as s]))
 
-(defn aaa [] (clojure.java.io/reader "http://.....")
+(defn aaa [] (clojure.java.io/reader "http://....."))
 
-(defn bbb [] (clojure.java.io/reader "http://.....")
+(defn bbb [] (clojure.java.io/reader "http://....."))
 
-(defn ccc [] (clojure.java.io/reader "http://.....")
+(defn ccc [] (clojure.java.io/reader "http://....."))
 ```
 
 Type `Ctrl + Command + Shift + n` with your cursol is on any position on `clojure.java.io/` phrase. Then...
