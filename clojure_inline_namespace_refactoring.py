@@ -24,7 +24,7 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 
 	def find_ns_modification(self, pos):
 		v = self.view
-		r = v.expand_by_class(pos, self.__class__.__ns_class, " /({[")
+		r = v.expand_by_class(pos, self.__class__.__ns_class, " /({[;")
 		return v.find(r"[-\w\d.]+[-\w\d]", r.begin())
 
 	def current_file_namespace(self):
@@ -50,7 +50,7 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 		import_region = v.find(r"\(ns[,\s](.|\n)+\(:import[\s,][^)]+?\)[\s,]*\)", 0)
 		print("import code region: " + str(import_region))
 		if ns_and_the_1st_arg_region.end() < 0:
-			# 2-1. There id no ns form
+			# 2-1. There is no ns form
 			end_of_shebang_or_dependencies_regions = v.find_all(r"^(#!.+|'\{:dependencies(.|\n)+?\})")
 			if len(end_of_shebang_or_dependencies_regions) > 0:
 				# 2-1-1. There are shebang or dependencies
@@ -95,7 +95,7 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 		require_region = v.find(r"\(ns[,\s](.|\n)+\(:require[\s,][^)]+?\)", 0)
 		print("require code region: " + str(require_region))
 		if ns_and_the_1st_arg_region.end() < 0:
-			# 2-1. There id no ns form
+			# 2-1. There is no ns form
 			end_of_shebang_or_dependencies_regions = v.find_all(r"^(#!.+|'\{:dependencies(.|\n)+?\})")
 			if len(end_of_shebang_or_dependencies_regions) > 0:
 				# 2-1-1. There are shebang or dependencies
@@ -107,7 +107,7 @@ class ClojureInlineNamespaceRefactoringCommand(sublime_plugin.TextCommand):
 				require_code = "(ns {0}\n  (:require [{1} :as {2}]))\n".format(current_ns, ns, alias)
 				require_code_insertion_pos = 0
 			v.insert(edit, require_code_insertion_pos, require_code)
-			added_require_alias_end_pos = require_code_insertion_pos + len(require_code) - 3
+			added_require_alias_end_pos = require_code_insertion_pos + len(require_code) - 4
 		elif require_region.end() < 0:
 			# 2-2. There is no ":require" in ns form
 			require_code = "\n  (:require [{0} :as {1}])".format(ns, alias)
